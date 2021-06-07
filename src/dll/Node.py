@@ -3,6 +3,8 @@ class Node:
     
     def __init__(self, contact: Contact):
         self.contact = contact
+        self.next = None
+        self.prev = None
     
     def set_next(self, next_node):
         self.next = next_node
