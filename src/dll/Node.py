@@ -1,13 +1,17 @@
 from src.Contact import Contact
-
-from .. import Contact
 class Node:
     
     def __init__(self, contact: Contact):
         self.contact = contact
     
-    def set_next(self, next_contact: Contact):
-        self.next = next_contact
+    def set_next(self, next_node):
+        self.next = next_node
     
-    def set_prev(self, prev_contact: Contact):
-        self.prev = prev_contact
+    def get_next(self):
+        return self.next
+    
+    def set_prev(self, prev_node):
+        self.prev = prev_node
+
+    def get_prev(self):
+        return self.prev        
