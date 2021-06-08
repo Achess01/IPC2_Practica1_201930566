@@ -71,4 +71,4 @@ def main_menu():
             print("Bye")
         else:
             print("La opción no es correcta")        
-        input()
+        input("Enter para continuar...")

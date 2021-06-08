@@ -22,6 +22,8 @@ class List:
                         aux2.set_next(node)
                     node.set_next(aux)
                     aux.set_prev(node)
+                    if aux == self.head:
+                        self.head = node
                     break
                 if aux.get_next() == None:
                     aux.set_next(node)
