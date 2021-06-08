@@ -20,7 +20,9 @@ def new_contact(number = None):
     try:
         phone_number = number
         name = input("Ingrese nombre: ")
+        name = name.lower().capitalize().strip()
         lastname = input("Ingrese apellido: ")
+        lastname = lastname.lower().capitalize().strip()
         if phone_number == None:            
             phone_number = int(input("Ingrese número de teléfono: "))
         else:
@@ -32,7 +34,7 @@ def new_contact(number = None):
             print("El contacto ya existe")
     except ValueError:
         print("Error al ingresar los datos")
-        print(ValueError)
+        #print(ValueError)
         
 
 

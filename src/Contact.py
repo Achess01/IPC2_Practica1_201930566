@@ -12,9 +12,9 @@ class Contact:
         return self.phone_number == phone_number_search
 
     def is_place(self, new_contact):
-        if new_contact.name.lower() == self.name.lower():
-            if new_contact.lastname.lower() <= self.lastname.lower():
+        if new_contact.lastname.lower() == self.lastname.lower():
+            if new_contact.name.lower() <= self.name.lower():
                 return True
-        elif new_contact.name.lower() < self.name.lower():
+        elif new_contact.lastname.lower() < self.lastname.lower():
                 return True
         return False
