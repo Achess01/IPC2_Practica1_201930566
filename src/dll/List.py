@@ -1,5 +1,6 @@
 from .Node import Node
 from ..Contact import Contact
+from graphviz import Digraph
 
 class List:
     def __init__(self):
@@ -45,10 +46,20 @@ class List:
         return None
     
     def show(self):
+        dot = Digraph(format='png', filename='agenda.gv',
+        node_attr={'color': 'lightblue2', 'style': 'filled'})     
+        dot.attr(label='\nAGENDA')
+        dot.attr('node', shape='box')        
         aux = self.head
-        while aux != None:            
-            print(aux.contact.name)
-            print(aux.contact.lastname)
-            print(aux.contact.phone_number)
-            print("=====")
+        while aux != None:   
+            contact_aux = aux.contact
+            text = 'Nombre: ' + contact_aux.name + '\nApellido: ' + contact_aux.lastname + '\nTeléfono: ' + str(contact_aux.phone_number)
+            dot.node('node' + str(contact_aux.id), text)                     
             aux = aux.get_next()
+        aux = self.head
+        while aux != None:                  
+            if aux.get_next() != None:                
+                
+                dot.edge('node' + str(aux.contact.id), 'node' + str(aux.get_next().contact.id), dir="both")         
+            aux = aux.get_next()
+        dot.view()
